@@ -39,7 +39,7 @@ jobs:
         project_id: ${{ env.PROJECT_ID }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
 
-    - name: Authorize Docker push
+    - name: Sync files
       run: gsutil -m rsync -r ${{ env.SOURCE_PATH }} gs://${{ env.BUCKET_NAME }}/${{ env.DEST_PATH }}
 
     - name: Update cors settings
